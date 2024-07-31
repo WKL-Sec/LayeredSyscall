@@ -2,7 +2,7 @@
 
 Generating legitimate call stack frame along with indirect syscalls by abusing Vectored Exception Handling (VEH) to bypass User-Land EDR hooks in Windows.
 
-Accompanying blog post can be found here: *link to blog here*
+Accompanying blog post can be found here: [LayeredSyscall – Abusing VEH to Bypass EDRs](https://whiteknightlabs.com/2024/07/31/layeredsyscall-abusing-veh-to-bypass-edrs/)
 
 ## Usage
 
