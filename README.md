@@ -62,6 +62,10 @@ int main(int argc, char* argv[]) {
 }
 ```
 
+## Todo
+- [ ] Provide option for global stack spoofing rather than just per api stack spoofing
+- [ ] Provide option for random legitimate Windows API calls apart from the one already in the tool
+
 ## Results
 
 ### Call stack analysis
@@ -72,16 +76,9 @@ Performing indirect syscall shows no legitimate call stack
 Legitimate call stack after usage of the tool
 ![image](https://github.com/user-attachments/assets/f5d79970-e699-4408-b658-97db512fd90c)
 
-
-### Testing against an EDR
-
-Before using the tool with Process Hollowing technique against Sophos EDR,
-![image](https://github.com/user-attachments/assets/b9a65ad9-42f5-4c94-b8ec-6fcb47bbe74e)
-
-After using the tool with Process Hollowing technique against Sophos EDR,
-![image](https://github.com/user-attachments/assets/bc42702e-9795-4d96-8cf0-3f9e8f287fbe)
-
 ## Potential Detections
+
+As of now, detections against this technique would require one to check for maliciously registered exception handlers within a particular program. Other detections could also include flagging anomalous stack behavior by implementing a heuristic against known call stack produced by Windows APIs.
 
 As of now, detections against this technique would require one to check for maliciously registered exception handlers within a particular program. Other detections could also include flagging anomalous stack behavior by implementing a heuristic against known call stack produced by Windows APIs.
 
