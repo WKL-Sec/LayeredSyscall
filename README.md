@@ -14,6 +14,19 @@ To let the tool perform the evasion add the prefix "wrp" to the start of the sys
 
 `NtCreateUserProcess() -> wrpNtCreateUserProcess()`
 
+The user is also provided with the functionality with changing what legitimate call stack they want to use in this current version of the tool. All they got to do is to change the Windows API call within the [`demofunction()`](https://github.com/WKL-Sec/LayeredSyscall/blob/1014ff4fddb03b4370c0d113caa6d7915d472ddb/HookModule.cpp#L19) found in `HookModule.cpp`.
+
+```cpp
+void demofunction() {
+    // You can change this call to any other Windows API call you like
+    MessageBox(
+        NULL,
+        (LPCWSTR)L"Resource not available\nDo you want to try again?",
+        (LPCWSTR)L"Account Details",
+        MB_ICONWARNING | MB_CANCELTRYCONTINUE | MB_DEFBUTTON2
+    );
+}
+```
 
 Below is a demo code to show how the tool can be used, full code can be found [here](https://github.com/WKL-Sec/LayeredSyscall/blob/main/demo.cpp).
 ```cpp
